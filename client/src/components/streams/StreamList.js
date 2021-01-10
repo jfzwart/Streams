@@ -4,7 +4,7 @@ import { fetchStream } from '../../actions'
 
 class StreamList extends React.Component {
   componentDidMount() {
-    this.props.fetchStreams();
+    this.props.fetchStream();
   }
 
   renderList() {
@@ -26,4 +26,4 @@ class StreamList extends React.Component {
   }
 }
 
-export default connect(null, { fetchStream }(StreamList));
+export default connect(null, { fetchStream })(StreamList);

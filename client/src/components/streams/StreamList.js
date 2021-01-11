@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchStream } from '../../actions'
+import { fetchStreams } from '../../actions';
 
 class StreamList extends React.Component {
   componentDidMount() {
-    this.props.fetchStream();
+    this.props.fetchStreams();
   }
 
   renderList() {
@@ -22,8 +22,16 @@ class StreamList extends React.Component {
 
   render() {
     return <div>StreamList</div>;
-
   }
 }
 
-export default connect(null, { fetchStream })(StreamList);
+const mapStateToProps = state => {
+  return {
+    streams: Object.values(state.streams)
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { fetchStreams }
+  )(StreamList);

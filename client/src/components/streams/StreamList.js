@@ -7,10 +7,26 @@ class StreamList extends React.Component {
     this.props.fetchStreams();
   }
 
+  renderAdmin(stream) {
+    if (stream.userId === this.props.currentUserId)
+    return (
+      <div className="right floated content">
+        <button className="ui button primary">
+        Edit
+        </button>
+        <button className="ui button negative">
+        Delete
+        </button>
+      </div>
+      )
+  }
+
+// in order to correctly style the buttons, we need to move them to the top of the div
   renderList() {
     return this.props.streams.map(stream => {
       return (
         <div className="item" key={stream.id}>
+        <div>{this.renderAdmin(stream)}</div>
           <i className="large middle aligned icon camera" />
           <div className="content">
             {stream.title}
@@ -19,6 +35,7 @@ class StreamList extends React.Component {
       </div>)
     })
   }
+
 
   render() {
     return (
@@ -32,7 +49,8 @@ class StreamList extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    streams: Object.values(state.streams)
+    streams: Object.values(state.streams),
+    currentUserID: state.auth.userId
   };
 };
 

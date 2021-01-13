@@ -26,3 +26,4 @@ export default connect(
   null,
    { createStream }
    )(StreamCreate);
+

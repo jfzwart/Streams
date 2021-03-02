@@ -1,3 +1,6 @@
 [submodule "streams"]
 	path = streams
 	url = /Users/jeroenzwart/code/jfzwart/modern-react-with-redux/streams
+[submodule "rtmpserver"]
+	path = rtmpserver
+	url = /Users/jeroenzwart/code/jfzwart/modern-react-with-redux/streams/rtmpserver
